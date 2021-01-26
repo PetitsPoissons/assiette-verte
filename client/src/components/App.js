@@ -1,10 +1,12 @@
 import React from 'react';
+import spoonacular from '../apis/spoonacular';
 import SearchBar from './SearchBar';
 import RecipeList from './RecipeList';
-import spoonacular from '../apis/spoonacular';
+import RecipeDetail from './RecipeDetail';
 
 class App extends React.Component {
-  state = { recipes: [] };
+  state = { recipes: [], selectedRecipe: null };
+
   onTermSubmit = async (term) => {
     const response = await spoonacular.get('/complexSearch', {
       params: {
@@ -15,11 +17,19 @@ class App extends React.Component {
     this.setState({ recipes: response.data.results });
   };
 
+  onRecipeSelect = (recipe) => {
+    this.setState({ selectedRecipe: recipe });
+  };
+
   render() {
     return (
       <div className="ui container">
         <SearchBar onTermSubmit={this.onTermSubmit} />
-        <RecipeList recipes={this.state.recipes} />
+        <RecipeDetail recipe={this.state.selectedRecipe} />
+        <RecipeList
+          recipes={this.state.recipes}
+          onRecipeSelect={this.onRecipeSelect}
+        />
       </div>
     );
   }
