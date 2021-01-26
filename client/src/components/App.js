@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchBar from './SearchBar';
+import RecipeList from './RecipeList';
 import spoonacular from '../apis/spoonacular';
 
 class App extends React.Component {
@@ -18,6 +19,7 @@ class App extends React.Component {
     return (
       <div className="ui container">
         <SearchBar onTermSubmit={this.onTermSubmit} />
+        <RecipeList recipes={this.state.recipes} />
       </div>
     );
   }
