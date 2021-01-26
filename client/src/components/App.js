@@ -7,6 +7,10 @@ import RecipeDetail from './RecipeDetail';
 class App extends React.Component {
   state = { recipes: [], selectedRecipe: null };
 
+  componentDidMount() {
+    this.onTermSubmit('chocolate');
+  }
+
   onTermSubmit = async (term) => {
     const response = await spoonacular.get('/complexSearch', {
       params: {
@@ -14,7 +18,10 @@ class App extends React.Component {
       },
     });
 
-    this.setState({ recipes: response.data.results });
+    this.setState({
+      recipes: response.data.results,
+      selectedRecipe: response.data.results[0],
+    });
   };
 
   onRecipeSelect = (recipe) => {
@@ -25,11 +32,19 @@ class App extends React.Component {
     return (
       <div className="ui container">
         <SearchBar onTermSubmit={this.onTermSubmit} />
-        <RecipeDetail recipe={this.state.selectedRecipe} />
-        <RecipeList
-          recipes={this.state.recipes}
-          onRecipeSelect={this.onRecipeSelect}
-        />
+        <div className="ui grid">
+          <div className="ui row">
+            <div className="eleven wide column">
+              <RecipeDetail recipe={this.state.selectedRecipe} />
+            </div>
+            <div className="five wide column">
+              <RecipeList
+                recipes={this.state.recipes}
+                onRecipeSelect={this.onRecipeSelect}
+              />
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
