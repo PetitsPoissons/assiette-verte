@@ -1,13 +1,13 @@
 import React from 'react';
 import RecipeItem from './RecipeItem';
 
-const RecipeList = ({ recipes, onRecipeSelect }) => {
+const RecipeList = ({ recipes, setSelectedRecipe }) => {
   const renderedList = recipes.map((recipe) => {
     return (
       <RecipeItem
         key={recipe.id}
         recipe={recipe}
-        onRecipeSelect={onRecipeSelect}
+        setSelectedRecipe={setSelectedRecipe}
       />
     );
   });
