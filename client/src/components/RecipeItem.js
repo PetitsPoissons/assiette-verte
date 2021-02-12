@@ -1,5 +1,5 @@
 import './RecipeItem.css';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const RecipeItem = ({ recipe, setSelectedRecipe }) => {
   return (

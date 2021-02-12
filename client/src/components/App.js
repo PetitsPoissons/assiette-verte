@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchSpoonacular from './components/SearchSpoonacular';
+import SearchSpoonacular from './SearchSpoonacular';
 
 const App = () => {
   return (
