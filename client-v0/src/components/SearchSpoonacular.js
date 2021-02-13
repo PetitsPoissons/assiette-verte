@@ -3,7 +3,7 @@ import spoonacular from '../apis/spoonacular';
 import RecipeList from './RecipeList';
 import RecipeDetail from './RecipeDetail';
 
-const SearchBar = () => {
+const SearchSpoonacular = () => {
   const [term, setTerm] = useState('');
   const [recipes, setRecipes] = useState([]);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
@@ -52,4 +52,4 @@ const SearchBar = () => {
   );
 };
 
-export default SearchBar;
+export default SearchSpoonacular;
