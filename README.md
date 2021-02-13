@@ -1,6 +1,6 @@
 # assiette-verte
 
-## INSTALL INSTRUCTIONS
+## INSTALL INSTRUCTIONS on CLIENT SIDE
 
 At the command line:
 
@@ -14,3 +14,7 @@ Then to start the app:
 ```
 npm start
 ```
+
+## TECHNOLOGIES
+
+node.js, express.js, authentication with Google OAuth using the Passport.js library
