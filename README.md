@@ -17,5 +17,5 @@ npm start
 
 ## TECHNOLOGIES
 
-node.js, express.js, authentication with Google OAuth using the Passport.js library,
+node.js, express.js, authentication with Google OAuth using the Passport.js library, cookie-session
 MongoDB, mongoose.js

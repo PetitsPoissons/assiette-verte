@@ -6,7 +6,17 @@ const keys = require('../config/keys');
 // create an instance of the model User
 const User = mongoose.model('users');
 
-passport.serializeUser((user, done) => {});
+// encode user id
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+
+// decode user id
+passport.deserializeUser((id, done) => {
+  User.findById(id).then((user) => {
+    done(null, user);
+  });
+});
 
 // tell the passport library that it should make use of the Google strategy inside our app
 passport.use(
