@@ -1,9 +1,9 @@
 import './RecipeItem.css';
-import React from 'react';
+import React, { useEffect } from 'react';
 
-const RecipeItem = ({ recipe, onRecipeSelect }) => {
+const RecipeItem = ({ recipe, setSelectedRecipe }) => {
   return (
-    <div className="recipe-item item" onClick={() => onRecipeSelect(recipe)}>
+    <div className="recipe-item item" onClick={() => setSelectedRecipe(recipe)}>
       <img className="ui image" src={recipe.image} alt={recipe.title} />
       <div className="content">
         <div className="header">{recipe.title}</div>
